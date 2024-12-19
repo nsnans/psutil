@@ -95,9 +95,6 @@ jobs:
       with:
         python-version: 3.9
 
-    - name: Create wheels + run tests
-      uses: pypa/cibuildwheel@v1.12.0
-
   # # Run linters
   # linters:
   #   runs-on: ubuntu-latest

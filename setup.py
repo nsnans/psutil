@@ -4,8 +4,12 @@
 # Use of this source code is governed by a BSD-style license that can be
 # found in the LICENSE file.
 
-"""Cross-platform lib for process and system monitoring in Python."""
+"""Cross-platform lib for process and system monitoring in Python.
 
+NOTE: this script syntax must be kept compatible with Python 2.7.
+"""
+
+from __future__ import print_function  # noqa: UP010
 
 import ast
 import contextlib
