@@ -76,24 +76,17 @@ jobs:
 
   # Linux + macOS + Python 2
   py2:
-    name: py2, ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
+    name: py2
+    runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
       fail-fast: false
-      matrix:
-        os: [ubuntu-latest]
-    env:
-      CIBW_BUILD: 'cp27-*'
-      CIBW_TEST_EXTRAS: test
-      CIBW_TEST_COMMAND:
-        make -C {project} PYTHON="env python" python -V
-
     steps:
     - uses: actions/checkout@v4
-    - uses: actions/setup-python@v5
+    - uses: LizardByte/setup-python-action@master
       with:
-        python-version: 3.9
+        python-version: '2.7'
+    - run: python -V
 
   # # Run linters
   # linters:
