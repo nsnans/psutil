@@ -86,7 +86,7 @@ jobs:
     - uses: LizardByte/setup-python-action@master
       with:
         python-version: '2.7'
-    - run: python -V
+    - run: python setup.py build
 
   # # Run linters
   # linters:
