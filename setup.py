@@ -5,24 +5,12 @@
 # found in the LICENSE file.
 
 """Cross-platform lib for process and system monitoring in Python.
+
 NOTE: the syntax of this script MUST be kept compatible with Python
 2.7.
 """
 
 from __future__ import print_function  # noqa: UP010
-
-import sys
-import textwrap
-
-
-if sys.version_info[0] == 2:  # noqa: UP036
-    sys.exit(textwrap.dedent("""\
-        As of version 7.0.0 psutil no longer supports Python 2.7.
-        Latest version supporting Python 2.7 is psutil 6.1.X.
-        Install it with:
-
-            pip2 install psutil==6.1.*\
-        """))
 
 import ast
 import contextlib
@@ -34,9 +22,22 @@ import re
 import shutil
 import struct
 import subprocess
+import sys
 import sysconfig
 import tempfile
+import textwrap
 import warnings
+
+
+if sys.version_info[0] == 2:  # noqa: UP036
+    sys.exit(textwrap.dedent("""\
+        As of version 7.0.0 psutil no longer supports Python 2.7, see:
+        https://github.com/giampaolo/psutil/issues/2480
+        Latest version supporting Python 2.7 is psutil 6.1.X.
+        Install it with:
+
+            python2 -m pip install psutil==6.1.*\
+        """))
 
 
 with warnings.catch_warnings():
@@ -51,6 +52,7 @@ with warnings.catch_warnings():
         setuptools = None
         from distutils.core import Extension
         from distutils.core import setup
+
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 
