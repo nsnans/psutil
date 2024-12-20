@@ -30,9 +30,12 @@ import warnings
 
 if sys.version_info[0] == 2:  # noqa: UP036
     sys.exit(textwrap.dedent("""\
-        As of version 7.0.0, psutil no longer supports Python 2.7.
+        As of version 7.0.0 psutil no longer supports Python 2.7.
         Latest version supporting Python 2.7 is psutil 6.1.X.
-        Install it with: "pip2 install psutil>=6.1"."""))
+        Install it with:
+
+            pip2 install psutil==6.1.*\
+        """))
 
 
 with warnings.catch_warnings():

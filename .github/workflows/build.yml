@@ -74,9 +74,9 @@ jobs:
   #       python setup.py sdist
   #       mv dist/psutil*.tar.gz wheelhouse/
 
-  # Linux + macOS + Python 2
+  # Test setup.py compatibility with Python 2.7 syntax.
   py2:
-    name: py2
+    name: py2.7 setup.py syntax check
     runs-on: ubuntu-24.04
     timeout-minutes: 20
     strategy:
@@ -86,7 +86,7 @@ jobs:
     - uses: LizardByte/setup-python-action@master
       with:
         python-version: '2.7'
-    - run: python setup.py
+    - run: python scripts/internal/test_python2_setup_py.py
 
   # # Run linters
   # linters:
