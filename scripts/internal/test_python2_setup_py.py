@@ -5,8 +5,8 @@
 # found in the LICENSE file.
 
 
-"""Invoke setup.py and make sure that on Python 2.7 it fails but prints
-a meaningful error message.
+"""Invoke setup.py with Python 2.7, make sure it fails but not due to
+SyntaxError, and that it prints a meaningful error message.
 """
 
 import os
@@ -32,6 +32,7 @@ def main():
     assert p.wait() == 1
     assert not stdout, stdout
     assert "psutil no longer supports Python 2.7" in stderr, stderr
+    assert "Latest version supporting Python 2.7 is" in stderr, stderr
 
 
 if __name__ == "__main__":

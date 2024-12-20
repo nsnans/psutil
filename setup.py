@@ -11,21 +11,8 @@ NOTE: the syntax of this script MUST be kept compatible with Python
 
 from __future__ import print_function  # noqa: UP010
 
-import ast
-import contextlib
-import glob
-import io
-import os
-import platform
-import re
-import shutil
-import struct
-import subprocess
 import sys
-import sysconfig
-import tempfile
 import textwrap
-import warnings
 
 
 if sys.version_info[0] == 2:  # noqa: UP036
@@ -36,6 +23,20 @@ if sys.version_info[0] == 2:  # noqa: UP036
 
             pip2 install psutil==6.1.*\
         """))
+
+import ast
+import contextlib
+import glob
+import io
+import os
+import platform
+import re
+import shutil
+import struct
+import subprocess
+import sysconfig
+import tempfile
+import warnings
 
 
 with warnings.catch_warnings():
